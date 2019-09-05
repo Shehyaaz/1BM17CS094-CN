@@ -1,0 +1,100 @@
+Router 0 configuration :
+enable
+configure terminal
+interface fastethernet 0/0
+ip address 10.0.0.1 255.0.0.0
+no shutdown
+exit
+
+interface serial 2/0
+ip address 20.0.0.1 255.0.0.0
+encapsulation ppp
+clock rate 64000
+no shutdown
+exit
+
+Router 1 configuration :
+enable
+configure terminal
+interface serial 2/0
+ip address 20.0.0.2 255.0.0.0
+encapsulation ppp
+no shutdown
+exit
+
+interface serial 3/0
+ip address 30.0.0.1 255.0.0.0
+encapsulation ppp
+clock rate 64000
+no shutdown
+exit
+
+Router 2 configuration :
+enable
+configure terminal
+interface fastethernet 0/0
+ip address 40.0.0.10 255.0.0.0
+no shutdown
+exit
+
+interface serial 2/0
+ip address 30.0.0.2 255.0.0.0
+encapsulation ppp
+no shutdown
+exit
+
+OSPF setting :
+
+Router 0:
+router ospf 1
+router-id 1.1.1.1
+network 10.0.0.0 0.255.255.255 area 3
+network 20.0.0.0 0.255.255.255 area 1
+exit
+
+Router 1:
+router ospf 1
+router-id 2.2.2.2
+network 20.0.0.0 0.255.255.255 area 1
+network 30.0.0.0 0.255.255.255 area 0
+exit
+
+Router 2:
+router ospf 1
+router-id 2.2.2.2
+network 30.0.0.0 0.255.255.255 area 0
+network 40.0.0.0 0.255.255.255 area 2
+exit
+
+Loopback setting:
+
+Router 0:
+interface serial 2/0
+interface loopback 0
+ip add 172.16.1.252 255.255.0.0
+no shutdown
+exit
+
+Router 1:
+interface serial 3/0
+interface loopback 0
+ip add 172.16.1.252 255.255.0.0
+no shutdown
+exit
+
+Router 2:
+interface serial 2/0
+interface loopback 0
+ip add 172.16.1.252 255.255.0.0
+no shutdown
+exit
+
+Virtual Link Setting :
+
+Router 0 to Router 1:
+router ospf 1
+area 1 virtual-link 2.2.2.2
+
+Router 1 to Router 0:
+router ospf 1
+area 1 virtual-link 1.1.1.1
