@@ -44,11 +44,11 @@ int main (int argc, char *argv[]){
     nCsma = nCsma == 0? 1 : nCsma;
     
     NodeContainer p2pNodes, p2pNodes1, csmaNodes;
-    p2pNodes.Create (2);
-    p2pNodes1.Create(2);
-    csmaNodes.Add (p2pNodes.Get (1));
-    csmaNodes.Create (nCsma);
-    csmaNodes.Add(p2pNodes1.Get(0));
+    p2pNodes.Create (2); // created n0 and n1
+    p2pNodes1.Create(2); // created n4 and n5
+    csmaNodes.Add (p2pNodes.Get (1)); // added n1
+    csmaNodes.Create (nCsma); // created n2 and n3
+    csmaNodes.Add(p2pNodes1.Get(0)); // added n4
     
     PointToPointHelper pointToPoint;
     pointToPoint.SetDeviceAttribute ("DataRate", StringValue ("5Mbps"));
@@ -66,9 +66,9 @@ int main (int argc, char *argv[]){
     p2pDevices1 = pointToPoint1.Install(p2pNodes1);
     
     InternetStackHelper stack;
-    stack.Install (p2pNodes.Get (0));
-    stack.Install (csmaNodes);
-    stack.Install (p2pNodes1.Get(1));
+    stack.Install (p2pNodes.Get (0)); // node n0
+    stack.Install (csmaNodes); // nodes n1,n2, n3, n4
+    stack.Install (p2pNodes1.Get(1)); // node n5
     
     Ipv4AddressHelper address;
     Ipv4InterfaceContainer p2pInterfaces, csmaInterfaces, p2pInterfaces1;
@@ -96,9 +96,9 @@ int main (int argc, char *argv[]){
     clientApps.Start (Seconds (2.0));
     clientApps.Stop (Seconds (10.0));
     UdpEchoClientHelper echoClient1 (csmaInterfaces.GetAddress (nCsma), 10);
-    echoClient.SetAttribute ("MaxPackets", UintegerValue (2));
-    echoClient.SetAttribute ("Interval", TimeValue (Seconds (1.0)));
-    echoClient.SetAttribute ("PacketSize", UintegerValue (512));
+    echoClient1.SetAttribute ("MaxPackets", UintegerValue (2));
+    echoClient1.SetAttribute ("Interval", TimeValue (Seconds (1.0)));
+    echoClient1.SetAttribute ("PacketSize", UintegerValue (512));
     ApplicationContainer clientApps1 = echoClient1.Install (p2pNodes1.Get (1));
     clientApps1.Start (Seconds (2.0));
     clientApps1.Stop (Seconds (10.0));
