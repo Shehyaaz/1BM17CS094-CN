@@ -118,42 +118,17 @@ int main (int argc, char *argv[]){
 /*
 OUTPUT:
 At time 2s client sent 1024 bytes to 10.1.2.3 port 9
-At time 2s client sent 100 bytes to 10.1.2.3 port 10
+At time 2s client sent 512 bytes to 10.1.2.3 port 10
 At time 2.0078s server received 1024 bytes from 10.1.1.1 port 49153
 At time 2.0078s server sent 1024 bytes to 10.1.1.1 port 49153
-At time 2.00825s server received 100 bytes from 10.1.3.2 port 49153
-At time 2.00825s server sent 100 bytes to 10.1.3.2 port 49153
-At time 2.0135s client received 100 bytes from 10.1.2.3 port 10
+At time 2.00894s server received 512 bytes from 10.1.3.2 port 49153
+At time 2.00894s server sent 512 bytes to 10.1.3.2 port 49153
 At time 2.01461s client received 1024 bytes from 10.1.2.3 port 9
-At time 3s client sent 100 bytes to 10.1.2.3 port 10
-At time 3.00223s server received 100 bytes from 10.1.3.2 port 49153
-At time 3.00223s server sent 100 bytes to 10.1.3.2 port 49153
-At time 3.00445s client received 100 bytes from 10.1.2.3 port 10
-At time 4s client sent 100 bytes to 10.1.2.3 port 10
-At time 4.00223s server received 100 bytes from 10.1.3.2 port 49153
-At time 4.00223s server sent 100 bytes to 10.1.3.2 port 49153
-At time 4.00445s client received 100 bytes from 10.1.2.3 port 10
-At time 5s client sent 100 bytes to 10.1.2.3 port 10
-At time 5.00223s server received 100 bytes from 10.1.3.2 port 49153
-At time 5.00223s server sent 100 bytes to 10.1.3.2 port 49153
-At time 5.00445s client received 100 bytes from 10.1.2.3 port 10
-At time 6s client sent 100 bytes to 10.1.2.3 port 10
-At time 6.00223s server received 100 bytes from 10.1.3.2 port 49153
-At time 6.00223s server sent 100 bytes to 10.1.3.2 port 49153
-At time 6.00445s client received 100 bytes from 10.1.2.3 port 10
-At time 7s client sent 100 bytes to 10.1.2.3 port 10
-At time 7.00223s server received 100 bytes from 10.1.3.2 port 49153
-At time 7.00223s server sent 100 bytes to 10.1.3.2 port 49153
-At time 7.00445s client received 100 bytes from 10.1.2.3 port 10
-At time 8s client sent 100 bytes to 10.1.2.3 port 10
-At time 8.00223s server received 100 bytes from 10.1.3.2 port 49153
-At time 8.00223s server sent 100 bytes to 10.1.3.2 port 49153
-At time 8.00445s client received 100 bytes from 10.1.2.3 port 10
-At time 9s client sent 100 bytes to 10.1.2.3 port 10
-At time 9.00223s server received 100 bytes from 10.1.3.2 port 49153
-At time 9.00223s server sent 100 bytes to 10.1.3.2 port 49153
-At time 9.00445s client received 100 bytes from 10.1.2.3 port 10
-
+At time 2.01489s client received 512 bytes from 10.1.2.3 port 10
+At time 3s client sent 512 bytes to 10.1.2.3 port 10
+At time 3.00292s server received 512 bytes from 10.1.3.2 port 49153
+At time 3.00292s server sent 512 bytes to 10.1.3.2 port 49153
+At time 3.00584s client received 512 bytes from 10.1.2.3 port 10
 */
     
     
