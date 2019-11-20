@@ -23,7 +23,7 @@ int main(){
   write(writefd, fname, strlen(fname));
   printf("Waiting for Server to reply..\n");
   while((n=read(readfd,buff,512))>0)
-    write(1,buff,n);
+    write(1,buff,n);  //write to stdout
   close(readfd);
   close(writefd);
   return 0;
